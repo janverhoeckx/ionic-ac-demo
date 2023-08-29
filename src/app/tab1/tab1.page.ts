@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import {Component} from '@angular/core';
+import {IonicModule} from '@ionic/angular';
+import {ExploreContainerComponent} from '../explore-container/explore-container.component';
+import {AuthService} from "../services/auth/auth.service";
 
 @Component({
   selector: 'app-tab1',
@@ -10,5 +11,15 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
   imports: [IonicModule, ExploreContainerComponent],
 })
 export class Tab1Page {
-  constructor() {}
+
+  constructor(private auth: AuthService) {
+  }
+
+  login() {
+    this.auth.login();
+  }
+
+  logout() {
+    this.auth.logout();
+  }
 }
